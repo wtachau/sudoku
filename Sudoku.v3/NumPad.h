@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+#import "COLOR_CONSTANTS.h"
+
 @interface NumPad : UIView{
     NSMutableArray* numberPad;
     id target;
     SEL selector;
+    
+    COLOR_CONSTANTS* COLORS;
 }
 @property int currentValue;
 -(void) numPadButtonPressed: (id) sender;

@@ -10,6 +10,7 @@
 		4047FB1116CD6D0D00D0915E /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4047FB1016CD6D0D00D0915E /* Timer.m */; };
 		40933B1E16CB7879006C244C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 40933B1D16CB7879006C244C /* Default-568h@2x.png */; };
 		61EF67AD16CDD8D800E89273 /* ControlButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EF67AC16CDD8D800E89273 /* ControlButtons.m */; };
+		D8E3BAFC16D01E6A00EA8870 /* COLOR_CONSTANTS.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E3BAFB16D01E6A00EA8870 /* COLOR_CONSTANTS.m */; };
 		F2C330FD16C8A17000AEFE31 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2C330FC16C8A17000AEFE31 /* UIKit.framework */; };
 		F2C330FF16C8A17000AEFE31 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2C330FE16C8A17000AEFE31 /* Foundation.framework */; };
 		F2C3310116C8A17000AEFE31 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2C3310016C8A17000AEFE31 /* CoreGraphics.framework */; };
@@ -49,6 +50,8 @@
 		40933B1D16CB7879006C244C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		61EF67AB16CDD8D800E89273 /* ControlButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlButtons.h; sourceTree = "<group>"; };
 		61EF67AC16CDD8D800E89273 /* ControlButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlButtons.m; sourceTree = "<group>"; };
+		D8E3BAFA16D01E6A00EA8870 /* COLOR_CONSTANTS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COLOR_CONSTANTS.h; sourceTree = "<group>"; };
+		D8E3BAFB16D01E6A00EA8870 /* COLOR_CONSTANTS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COLOR_CONSTANTS.m; sourceTree = "<group>"; };
 		F2C330F816C8A17000AEFE31 /* Sudoku.v3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sudoku.v3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2C330FC16C8A17000AEFE31 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F2C330FE16C8A17000AEFE31 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -159,6 +162,8 @@
 				F2C3313E16C8A22E00AEFE31 /* GridGenerator.m */,
 				F2C3314016C8A24100AEFE31 /* GridGeneratorFromFile.h */,
 				F2C3314116C8A24100AEFE31 /* GridGeneratorFromFile.m */,
+				D8E3BAFA16D01E6A00EA8870 /* COLOR_CONSTANTS.h */,
+				D8E3BAFB16D01E6A00EA8870 /* COLOR_CONSTANTS.m */,
 				F2C3311116C8A17000AEFE31 /* ViewController_iPhone.xib */,
 				F2C3311416C8A17000AEFE31 /* ViewController_iPad.xib */,
 				F2C3310316C8A17000AEFE31 /* Supporting Files */,
@@ -319,6 +324,7 @@
 				F2C3314216C8A24100AEFE31 /* GridGeneratorFromFile.m in Sources */,
 				4047FB1116CD6D0D00D0915E /* Timer.m in Sources */,
 				61EF67AD16CDD8D800E89273 /* ControlButtons.m in Sources */,
+				D8E3BAFC16D01E6A00EA8870 /* COLOR_CONSTANTS.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

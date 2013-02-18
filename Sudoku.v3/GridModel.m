@@ -14,12 +14,20 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        numberCellsFilled = 0;
+        
+        // Hard-coded string for some tests.  TODO - delete line in setInitValueGivenString after deleting this.
+        // Also delete from header file.
+        //gridString5 = [[NSString alloc] initWithFormat:@".55555555123456789123456789123456789123456789123456789123456789123456789123456789"];
     }
     return self;
 }
 
+
+
 -(void) setInitValueGivenString:(NSString *)gridString {
-    NSAssert([gridString length]==81, @"String is invalid size");
+    //NSAssert([gridString length]==81, @"String is invalid size");
+    //gridString = gridString5;
     int cellValue;
     for (int row=0; row<9;row++){
         for (int column=0; column<9; column++){
@@ -28,13 +36,19 @@
             }
             else{
                 int value = [self getIntFromChar:[gridString characterAtIndex:(row*9+column)]];
-                NSAssert(value>=1&&value<=9, @"Invalid input for grid");
+                //NSAssert(value>=1&&value<=9, @"Invalid input for grid");
                 cellValue = value;
+                ++numberCellsFilled;
             }
             initBoard[row][column]=cellValue;
             board[row][column]=cellValue;
         }
     }
+    if (numberCellsFilled == 81)
+    {
+        [target performSelector: selector];
+    }
+   
 }
 
 -(int) getIntFromChar:(char) c {
@@ -48,7 +62,21 @@
 -(void) updateGridAtRow:(int)row atColumn:(int)column forNumber:(int)num{
     NSAssert(row>=0&&row<=8 && column>=0&&column<=8, @"Invalid Index");
     NSAssert(num>=0 && num<=9, @"Invalid number");
+    if (board[row][column] == 0 && num != 0)
+    {
+        ++numberCellsFilled;
+        NSLog(@"number of cells filled is %d",numberCellsFilled);
+    }
+    else if (board[row][column] != 0 && num == 0)
+    {
+        --numberCellsFilled;
+        NSLog(@"number of cells filled is %d",numberCellsFilled);
+    }
     board[row][column]=num;
+    if (numberCellsFilled == 81)
+    {
+        [target performSelector: selector];
+    }
 }
 
 -(bool) isMutableAtRow:(int)row atColumn:(int)column
@@ -100,6 +128,11 @@
         }
     }
     return false;
+}
+-(void) setTarget:(id) sender atAction:(SEL)action
+{
+    target=sender;
+    selector = action;
 }
 
 @end

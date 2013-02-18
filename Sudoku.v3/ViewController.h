@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "GridView.h"
 #import "NumPad.h"
 #import "GridModel.h"
@@ -22,10 +23,17 @@
     GridGenerator* theGridGenerator;
     Timer* theTimer;
     ControlButtons* theControlButtons;
+    COLOR_CONSTANTS* COLORS;
+    int SCREEN_WIDTH;
+    int SCREEN_HEIGHT;
+    int GRID_ORIGIN_X;
+    int GRID_ORIGIN_Y;
+    int GRID_SIZE;
     
 }
 
 -(void) buttonPressed;
 -(void) numPadButtonPressed;
+-(void) gameIsWon;
 
 @end

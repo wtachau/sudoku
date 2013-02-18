@@ -11,12 +11,14 @@
 #import "NumPad.h"
 #import "GridModel.h"
 #import "GridGeneratorFromFile.h"
+#import "COLOR_CONSTANTS.h"
 
 @interface Sudoku_v3Tests : SenTestCase{
     GridView* theGrid;
     NumPad* theNumPad;
     GridModel* theGridModel;
     GridGenerator* theGridGenerator;
+    COLOR_CONSTANTS* COLORS;
 }
 -(void) testInitSetUp;
 -(void) testStringTooLong;

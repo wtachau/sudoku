@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Jessica Schroeder, Alana Shine, Will Tachau. All rights reserved.
 //
 
+#import "COLOR_CONSTANTS.h"
 #import "GridView.h"
 #import "GridModel.h"
 #import "NumPad.h"
@@ -17,7 +18,10 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor=[UIColor blackColor];
+        
+        COLORS = [[COLOR_CONSTANTS alloc] init];
+        
+        self.backgroundColor = COLORS.BORDER;
         
         //making the size of the buttons and lines
         int smallLines = 5;
@@ -38,11 +42,17 @@
             for (int column=0; column<9; column++)
             {
                 UIButton* theButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, originY, size, size)];
-                [theButton setTitleColor:[UIColor blackColor] forState: UIControlStateNormal];
-                [theButton setTitleColor:[UIColor redColor] forState: UIControlStateHighlighted];
+                
+                [theButton setTitleColor:COLORS.CELLS_DEFAULT_NUMBERS forState: UIControlStateNormal];
+                [theButton setTitleColor:COLORS.CELLS_HIGHLIGHT_NUMBERS forState: UIControlStateHighlighted];
+                [theButton.titleLabel setFont:[UIFont systemFontOfSize:30]];
                 [theButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
+                theButton.showsTouchWhenHighlighted = YES;
                 theButton.tag = row*10 + column;
-                theButton.backgroundColor = [UIColor whiteColor];
+                theButton.backgroundColor = COLORS.CELLS_DEFAULT_BACKGROUND;
+                
+                theButton.exclusiveTouch = YES;
+                
                 [[buttonArray objectAtIndex:row] addObject: theButton];
                 [self addSubview:theButton];
                 
@@ -62,9 +72,8 @@
                 originY+=smallLines+size;
             }
             
-            
         }
-        
+
     }
     return self;
 }

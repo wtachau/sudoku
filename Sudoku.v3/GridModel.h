@@ -10,8 +10,12 @@
 
 @interface GridModel : UIView{
     int board[9][9];
-    //initial values stoared in char array
+    //initial values stored in char array
     int initBoard[9][9];
+    int numberCellsFilled;
+    id target;
+    SEL selector;
+    //NSString* gridString5;
     
 }
 -(bool) isConsistentAtRow: (int) row atColumn: (int) column forNumber: (int) num;
@@ -23,5 +27,6 @@
 -(int) blockNumAtRow: (int) row atColumn: (int) column;
 -(bool) hasValue: (int) value inBlock:(int) block;
 -(void) setInitValueGivenString: (NSString*) gridString;
+-(void) setTarget:(id) sender atAction:(SEL)action;
 
 @end

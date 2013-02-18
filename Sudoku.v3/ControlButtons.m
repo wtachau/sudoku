@@ -14,7 +14,10 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor=[UIColor blackColor];
+        
+        COLORS = [[COLOR_CONSTANTS alloc] init];
+        
+        self.backgroundColor = COLORS.BORDER;
         int originX=5;
         int originY=5;
         int length = (self.bounds.size.height-(10));
@@ -22,15 +25,25 @@
         theButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, originY, width, length)];
         [theButton addTarget:self action:@selector(newGamePressed:) forControlEvents:UIControlEventTouchUpInside];
         [theButton setTitle:[[NSString alloc] initWithFormat:@"New Game"] forState:UIControlStateNormal];
-        theButton.backgroundColor = [UIColor whiteColor];
-        [theButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        
+        theButton.backgroundColor = COLORS.OPTIONS_BUTTONS_BACKGROUND;
+        [theButton setTitleColor:COLORS.OPTIONS_BUTTONS_TEXT forState:UIControlStateNormal];
+        
+        theButton.exclusiveTouch = YES;
+        
         [self addSubview:theButton];
     }
     return self;
 }
 
 -(void) newGamePressed: (id) sender{
-    NSLog(@"We still need to implement this button!");
+    [target performSelector:selector];
+}
+
+-(void) setTarget:(id) sender atAction:(SEL)action
+{
+    target=sender;
+    selector = action;
 }
 
 

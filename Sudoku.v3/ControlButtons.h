@@ -8,12 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+#import "COLOR_CONSTANTS.h"
+
 @interface ControlButtons : UIView
 {
     UIButton* theButton;
+    
+    id target;
+    SEL selector;
+    
+    COLOR_CONSTANTS* COLORS;
 }
 
 -(void) newGamePressed: (id) sender;
+-(void) setTarget: (id) target atAction: (SEL) action;
 
 
 @end

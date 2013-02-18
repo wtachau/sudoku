@@ -22,7 +22,10 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        self.backgroundColor=[UIColor blackColor];
+        COLORS = [[COLOR_CONSTANTS alloc] init];
+        
+        self.backgroundColor=COLORS.BORDER;
+        
         int size = (self.bounds.size.width-(20+5*8)) *(1/10.0);
         int originX=10;
         int originY=(self.bounds.size.height-size)/2;
@@ -33,26 +36,33 @@
             
             [numberPad addObject:[[UIButton alloc] initWithFrame:CGRectMake(originX, originY, size, size)]];
             
-            [((UIButton*)[numberPad objectAtIndex:i]) addTarget:self action:@selector(numPadButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-            [((UIButton*)[numberPad objectAtIndex:i]) setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+            UIButton* currentButton = [numberPad objectAtIndex:i];
+            
+            [currentButton addTarget:self action:@selector(numPadButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+            
+            [currentButton setTitleColor:COLORS.OPTIONS_BUTTONS_TEXT forState:UIControlStateNormal];
+            
+            currentButton.exclusiveTouch = YES;
             
             //tag of 0 means initial, 1 means not
             if (i==0){
-                [((UIButton*)[numberPad objectAtIndex:i]) setTitle:[NSString stringWithFormat:@"%d", (i+1)] forState:UIControlStateNormal];
-                ((UIButton*)[numberPad objectAtIndex:i]).backgroundColor=[UIColor whiteColor];
-                [((UIButton*)[numberPad objectAtIndex:i]) setTag:(i+1)];
+                [currentButton setTitle:[NSString stringWithFormat:@"%d", (i+1)] forState:UIControlStateNormal];
+                [currentButton.titleLabel setFont:[UIFont systemFontOfSize:30]];
+                currentButton.backgroundColor=COLORS.CELLS_HIGHLIGHT_BACKGROUND;
+                [currentButton setTag:(i+1)];
             }
             else if(i==9){
-                [((UIButton*)[numberPad objectAtIndex:i]) setTitle:[NSString stringWithFormat:@"Erase"] forState:UIControlStateNormal];
-                ((UIButton*)[numberPad objectAtIndex:i]).backgroundColor=[UIColor lightGrayColor];
-                [((UIButton*)[numberPad objectAtIndex:i]) setTag:0];
+                [currentButton setTitle:[NSString stringWithFormat:@"Erase"] forState:UIControlStateNormal];
+                currentButton.backgroundColor=COLORS.OPTIONS_BUTTONS_BACKGROUND;
+                [currentButton setTag:0];
             }
             else{
-                [((UIButton*)[numberPad objectAtIndex:i]) setTitle:[NSString stringWithFormat:@"%d", (i+1)] forState:UIControlStateNormal];
-                ((UIButton*)[numberPad objectAtIndex:i]).backgroundColor=[UIColor lightGrayColor];
-                [((UIButton*)[numberPad objectAtIndex:i]) setTag:(i+1)];
+                [currentButton setTitle:[NSString stringWithFormat:@"%d", (i+1)] forState:UIControlStateNormal];
+                [currentButton.titleLabel setFont:[UIFont systemFontOfSize:30]];
+                currentButton.backgroundColor=COLORS.OPTIONS_BUTTONS_BACKGROUND;
+                [currentButton setTag:(i+1)];
             }
-            [self addSubview:(UIButton*)[numberPad objectAtIndex:i]];
+            [self addSubview:currentButton];
             
             
             originX+=5+size;
@@ -64,7 +74,8 @@
 }
 
 -(void) numPadButtonPressed: (id) sender{
-    [sender setBackgroundColor:[UIColor whiteColor]];
+
+    [sender setBackgroundColor:COLORS.CELLS_HIGHLIGHT_BACKGROUND];
     UIButton* theButton;
     if (currentValue==0){
         theButton = [numberPad objectAtIndex: (9)];
@@ -73,7 +84,7 @@
       theButton = [numberPad objectAtIndex: (currentValue-1)];
     }
     if (currentValue != ((UIButton*) sender).tag){
-       [theButton setBackgroundColor: [UIColor lightGrayColor]];
+       [theButton setBackgroundColor: COLORS.OPTIONS_BUTTONS_BACKGROUND];
     }
     currentValue= ((UIButton*) sender).tag;
     [target performSelector: selector];

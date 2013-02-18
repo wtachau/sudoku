@@ -16,7 +16,11 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor=[UIColor blackColor];
+        
+        COLORS = [[COLOR_CONSTANTS alloc] init];
+        
+        self.backgroundColor = COLORS.BORDER;
+        
         int originX=5;
         int originY=5;
         int length = (self.bounds.size.height-(10));
@@ -24,22 +28,43 @@
         theButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, originY, width, length)];
         [theButton addTarget:self action:@selector(timerPressed:) forControlEvents:UIControlEventTouchUpInside];
         [theButton setTitle:[[NSString alloc] initWithFormat:@"Show Time Elapsed"] forState:UIControlStateNormal];
-        theButton.backgroundColor = [UIColor whiteColor];
-        [theButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        
+        theButton.backgroundColor = COLORS.OPTIONS_BUTTONS_BACKGROUND;
+        
+        [theButton setTitleColor:COLORS.OPTIONS_BUTTONS_TEXT forState:UIControlStateNormal];
+        
+        theButton.exclusiveTouch = YES;
+        
         [self addSubview:theButton];
         start = [NSDate dateWithTimeIntervalSinceNow:1];
+        timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(increaseTimerCount:) userInfo:nil repeats:YES];
+        
+        hidden = YES;
         
     }
     return self;
 }
 
 -(void) timerPressed: (id) sender{
-    timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(increaseTimerCount:) userInfo:nil repeats:YES];
+    
+    hidden = !hidden;
+    if (hidden) {
+        [theButton setTitle:[[NSString alloc] initWithFormat:@"Show Time Elapsed"] forState:UIControlStateNormal];
+    }
+    else {
+        [self increaseTimerCount:timer];
+    }
+
 }
 - (void)increaseTimerCount: (id) sender
 {   
     NSTimeInterval timeInterval = [start timeIntervalSinceNow];
-    [theButton setTitle:[[NSString alloc] initWithFormat:@"%d", (int)(0-timeInterval)] forState:UIControlStateNormal];
+    if (!hidden) {
+        int minutes = (int)(0-timeInterval) / 60;
+        int seconds = (int)(0-timeInterval) % 60;
+        [theButton setTitle:[[NSString alloc] initWithFormat:@"%02d:%02d", minutes, seconds] forState:UIControlStateNormal];
+    }
+    
 }
 
 /*

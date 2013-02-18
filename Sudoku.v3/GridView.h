@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+#import "COLOR_CONSTANTS.h"
+
 @interface GridView : UIView{
     NSMutableArray* buttonArray;
     id target;
     SEL selector;
+    
+    COLOR_CONSTANTS* COLORS;
 }
 
 @property int currentRow;

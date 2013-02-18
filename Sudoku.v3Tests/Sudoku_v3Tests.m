@@ -18,6 +18,7 @@
     theGrid = [[GridView alloc] init];
     theGridGenerator = [[GridGeneratorFromFile alloc] init];
     theGridModel = [[GridModel alloc] init];
+    COLORS = [[COLOR_CONSTANTS alloc] init];
 }
 
 - (void)tearDown
@@ -75,7 +76,7 @@
     STAssertEquals([theGridModel blockNumAtRow:0 atColumn:0], 0, @"Wrong Block Number");
 }
 -(void) testValidValueForGridView{
-    STAssertThrows([theGrid setValueAtRow:0 atColumn:0 forValue:10 withColor:[UIColor blackColor]], @"Invalid value");
+    STAssertThrows([theGrid setValueAtRow:0 atColumn:0 forValue:10 withColor:COLORS.CELLS_DEFAULT_NUMBERS], @"Invalid value");
 }
 -(void) testValidValueForGridModel{
     STAssertThrows([theGridModel updateGridAtRow:0 atColumn:0 forNumber:10], @"Invalid value");

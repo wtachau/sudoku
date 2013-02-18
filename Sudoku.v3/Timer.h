@@ -8,10 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+#import "COLOR_CONSTANTS.h"
+
 @interface Timer : UIView{
     NSTimer* timer;
     UIButton* theButton;
     NSDate *start;
+    
+    COLOR_CONSTANTS* COLORS;
+    
+    bool hidden;
 }
 
 -(void) timerPressed: (id) sender;
