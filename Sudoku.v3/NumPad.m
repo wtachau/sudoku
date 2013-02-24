@@ -3,14 +3,9 @@
 //  Sudoku.v3
 //
 //  Created by Jessica Schroeder on 2/10/13.
-//  Copyright (c) 2013 Jessica Schroeder, Alana Shine, Will Tachau. All rights reserved.
+//  Copyright (c) 2013 Jessica Schroeder, Alana Shine, Will Tachau, Priya Donti, Carson Ramsden.
+//  All rights reserved.
 //
-
-
-//BUG #1! If you select a number (or erase) in the numPad, and then UNSELECT it, you can't select it again until you
-// click another button in the numPad
-
-//BUG #2! If you have "click" selected, and then click a cell, it will make it orange
 
 #import "NumPad.h"
 

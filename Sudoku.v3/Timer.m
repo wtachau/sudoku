@@ -3,10 +3,9 @@
 //  Sudoku.v3
 //
 //  Created by Jessie on 2/14/13.
-//  Copyright (c) 2013 Jessica Schroeder, Alana Shine, Will Tachau. All rights reserved.
+//  Copyright (c) 2013 Jessica Schroeder, Alana Shine, Will Tachau, Priya Donti, Carson Ramsden.
+//  All rights reserved.
 //
-
-//Bug 1: You should only be able to start the timer if it hasn't been started (or if the game has beeen restarted)
 
 #import "Timer.h"
 
