@@ -1,10 +1,12 @@
-sudoku
+Sudoku
 ======
 
-Sudoku App
-by Team Dragon
-and Team Braveheart
+A Sudoku App
+Class: Software Development
+February 21, 2013
 
-OMG THIS IS OUR SUDOKU REPOSITORY
-
-Carson edited this!!!!!
+Priya Donti
+Carson Ramsden
+Jessie Schroeder
+Alana Shinee
+Will Tachau
