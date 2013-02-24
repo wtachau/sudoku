@@ -8,5 +8,5 @@ February 21, 2013
 Priya Donti
 Carson Ramsden
 Jessie Schroeder
-Alana Shinee
+Alana Shine
 Will Tachau
